@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -b '0.0.0.0'"
+    volumes:
+      - "./:/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://admin:password@db:5432/rails_tutorial_development
+
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    # volumes:
+    #   - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  postgres_data:
+
+
+      
