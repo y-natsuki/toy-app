@@ -13,6 +13,27 @@ services:
     environment:
       DATABASE_URL: postgres://admin:password@db:5432/rails_tutorial_development
 
+  test:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && rails test"
+    volumes:
+      - "./:/app"
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: test
+      DATABASE_URL: postgres://admin:password@db:5432/rails_tutorial_test
+
+  migrate:
+    build: .
+    command: bash -c "rails db:migrate"
+    volumes:
+      - "./:/app"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://admin:password@db:5432/rails_tutorial_development
+
   db:
     image: postgres:12
     environment:

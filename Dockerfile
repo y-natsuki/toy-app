@@ -65,12 +65,20 @@ FROM ruby:3.1.4
 
 WORKDIR /app
 
+# テスト環境用の環境変数を追加
+ENV RAILS_ENV=test \
+    BUNDLE_WITHOUT=development:production
+
 COPY Gemfile Gemfile.lock ./
 
 RUN bundle install
 
 COPY . .
 
+# テスト用のデータベースを作成
+RUN bundle exec rails db:create db:migrate RAILS_ENV=test
+
 EXPOSE 3000
 
+# デフォルトのコマンドはサーバー起動
 CMD ["rails", "server", "-b", "0.0.0.0"]
