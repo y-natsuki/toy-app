@@ -1,0 +1,19 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "sample app", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path  %></li>
+        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Log in", '#' %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<% begin %>
+  <% Rails.logger.debug "help_path: #{help_path rescue 'undefined'}" %>
+  <% Rails.logger.debug "static_pages_home_path: #{static_pages_home_path rescue 'undefined'}" %>
+<% rescue => e %>
+  <% Rails.logger.error "ルートエラー: #{e.message}" %>
+<% end %>

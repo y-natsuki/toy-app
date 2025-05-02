@@ -76,7 +76,7 @@ RUN bundle install
 COPY . .
 
 # テスト用のデータベースを作成
-RUN bundle exec rails db:create db:migrate RAILS_ENV=test
+#RUN bundle exec rails db:create db:migrate RAILS_ENV=test
 
 EXPOSE 3000
 
