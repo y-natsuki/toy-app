@@ -1,0 +1,16 @@
+/* // app/assets/stylesheets/application.scss
+
+// Bootstrapを読み込む (custom.scss内で既に@importしている場合は、ここで重複しないように注意)
+// どちらで読み込むか統一するのが良いでしょう。
+// 例えば、custom.scssの先頭の@importをこちらに移動するか、
+// custom.scssで読み込んでいるならここはコメントアウトします。
+// 今回は custom.scss での読み込みを活かすとして、ここはコメントアウトしておきます。
+// @import "bootstrap-sprockets"; // 注意: bootstrap-sass (v3系) と bootstrap (v5系) の混在問題あり
+// @import "bootstrap"; */
+
+/* // あなたのカスタムスタイルファイルを読み込む */
+@import "custom";
+
+/* // もし他に app/assets/stylesheets 直下にSCSSファイルがあり、
+// それらも読み込みたい場合は、同様に @import で追加します。
+// 例: @import "another_style_file"; */

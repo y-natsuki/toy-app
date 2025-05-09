@@ -13,7 +13,9 @@ gem "bootstrap-sass",  "3.4.1"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+# gem "pg", "~> 1.1"
+
+gem "pg", "1.3.5" 
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -81,3 +83,8 @@ gem "bootstrap", "~> 5.3.2"
 
 # JavaScriptの依存関係を管理するためのgem（Bootstrapに必要）
 gem "importmap-rails"
+
+#group :production do
+#  gem "pg", "1.3.5"
+#end
+
